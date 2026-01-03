@@ -43,6 +43,7 @@ enum FormatType {
 	LONG_TEXT = "long", // Long texts with quotes (descriptions)
 	URL = "url", // URLs without quotes
 	LINK = "link", // Obsidian links with quotes
+	ActorsLINK = "actors_link", // Obsidian links with quotes
 }
 
 export class DataFormatter {
@@ -138,16 +139,16 @@ export class DataFormatter {
 				people.directors,
 				FormatType.SHORT_VALUE
 			),
-			directorsLinks: this.formatArray(people.directors, FormatType.LINK),
+			directorsLinks: this.formatArray(people.directors, FormatType.ActorsLINK),
 			actors: this.formatArray(people.actors, FormatType.SHORT_VALUE),
-			actorsLinks: this.formatArray(people.actors, FormatType.LINK),
+			actorsLinks: this.formatArray(people.actors, FormatType.ActorsLINK),
 			writers: this.formatArray(people.writers, FormatType.SHORT_VALUE),
-			writersLinks: this.formatArray(people.writers, FormatType.LINK),
+			writersLinks: this.formatArray(people.writers, FormatType.ActorsLINK),
 			producers: this.formatArray(
 				people.producers,
 				FormatType.SHORT_VALUE
 			),
-			producersLinks: this.formatArray(people.producers, FormatType.LINK),
+			producersLinks: this.formatArray(people.producers, FormatType.ActorsLINK),
 
 			// Technical specifications
 			movieLength: fullInfo.movieLength || 0,
@@ -337,6 +338,13 @@ export class DataFormatter {
 				return filteredItems.map(
 					(item) => `"[[${this.cleanTextForMetadata(item)}]]"`
 				);
+
+			case FormatType.ActorsLINK:
+				return filteredItems.map(
+					(item) => `"[[Dataview/Кино/Актеры_Режиссеры/${this.cleanTextForMetadata(item)}]]"`
+				);
+
+				
 
 			default:
 				return filteredItems;

@@ -788,16 +788,16 @@ var DataFormatter = class {
         people.directors,
         "short" /* SHORT_VALUE */
       ),
-      directorsLinks: this.formatArray(people.directors, "link" /* LINK */),
+      directorsLinks: this.formatArray(people.directors, "actors_link" /* ActorsLINK */),
       actors: this.formatArray(people.actors, "short" /* SHORT_VALUE */),
-      actorsLinks: this.formatArray(people.actors, "link" /* LINK */),
+      actorsLinks: this.formatArray(people.actors, "actors_link" /* ActorsLINK */),
       writers: this.formatArray(people.writers, "short" /* SHORT_VALUE */),
-      writersLinks: this.formatArray(people.writers, "link" /* LINK */),
+      writersLinks: this.formatArray(people.writers, "actors_link" /* ActorsLINK */),
       producers: this.formatArray(
         people.producers,
         "short" /* SHORT_VALUE */
       ),
-      producersLinks: this.formatArray(people.producers, "link" /* LINK */),
+      producersLinks: this.formatArray(people.producers, "actors_link" /* ActorsLINK */),
       // Technical specifications
       movieLength: fullInfo.movieLength || 0,
       isSeries: fullInfo.isSeries,
@@ -956,6 +956,10 @@ var DataFormatter = class {
       case "link" /* LINK */:
         return filteredItems.map(
           (item) => `"[[${this.cleanTextForMetadata(item)}]]"`
+        );
+      case "actors_link" /* ActorsLINK */:
+        return filteredItems.map(
+          (item) => `"[[Dataview/\u041A\u0438\u043D\u043E/\u0410\u043A\u0442\u0435\u0440\u044B_\u0420\u0435\u0436\u0438\u0441\u0441\u0435\u0440\u044B/${this.cleanTextForMetadata(item)}]]"`
         );
       default:
         return filteredItems;
