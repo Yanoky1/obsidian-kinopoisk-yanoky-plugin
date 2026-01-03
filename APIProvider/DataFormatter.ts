@@ -7,8 +7,9 @@
 import { KinopoiskFullInfo, KinopoiskPerson } from "Models/kinopoisk_response";
 import { MovieShow } from "Models/MovieShow.model";
 import { capitalizeFirstLetter } from "Utils/utils";
+import { ObsidianKinopoiskPluginSettings } from "Settings/settings";
 
-const MAX_ARRAY_ITEMS = 15;
+const MAX_ARRAY_ITEMS = 50;
 const MAX_FACTS_COUNT = 5;
 
 // Content type translations to Russian
@@ -47,6 +48,20 @@ enum FormatType {
 }
 
 export class DataFormatter {
+	private settings?: {
+		actorsPath: string;
+		directorsPath: string;
+	};
+
+	/**
+	 * Set settings for path support
+	 */
+	public setSettings(settings: {
+		actorsPath: string;
+		directorsPath: string;
+	}): void {
+		this.settings = settings;
+	}
 	/**
 	 * Transforms API data into MovieShow format
 	 */
@@ -139,16 +154,16 @@ export class DataFormatter {
 				people.directors,
 				FormatType.SHORT_VALUE
 			),
-			directorsLinks: this.formatArray(people.directors, FormatType.ActorsLINK),
+			directorsLinks: this.formatArray(people.directors, FormatType.LINK, this.settings?.directorsPath),
 			actors: this.formatArray(people.actors, FormatType.SHORT_VALUE),
-			actorsLinks: this.formatArray(people.actors, FormatType.ActorsLINK),
+			actorsLinks: this.formatArray(people.actors, FormatType.LINK,  MAX_ARRAY_ITEMS, this.settings?.actorsPath),
 			writers: this.formatArray(people.writers, FormatType.SHORT_VALUE),
-			writersLinks: this.formatArray(people.writers, FormatType.ActorsLINK),
+			writersLinks: this.formatArray(people.writers, FormatType.LINK),
 			producers: this.formatArray(
 				people.producers,
 				FormatType.SHORT_VALUE
 			),
-			producersLinks: this.formatArray(people.producers, FormatType.ActorsLINK),
+			producersLinks: this.formatArray(people.producers, FormatType.LINK),
 
 			// Technical specifications
 			movieLength: fullInfo.movieLength || 0,
@@ -311,6 +326,7 @@ export class DataFormatter {
 		items: string[],
 		formatType: FormatType,
 		maxItems = MAX_ARRAY_ITEMS
+
 	): string[] {
 		const filteredItems = items
 			.filter((item) => item && item.trim() !== "")
@@ -337,11 +353,6 @@ export class DataFormatter {
 			case FormatType.LINK:
 				return filteredItems.map(
 					(item) => `"[[${this.cleanTextForMetadata(item)}]]"`
-				);
-
-			case FormatType.ActorsLINK:
-				return filteredItems.map(
-					(item) => `"[[Dataview/Кино/Актеры_Режиссеры/${this.cleanTextForMetadata(item)}]]"`
 				);
 
 				

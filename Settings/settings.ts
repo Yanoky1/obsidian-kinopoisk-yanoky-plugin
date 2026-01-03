@@ -31,6 +31,8 @@ export interface ObsidianKinopoiskPluginSettings {
 	seriesFileNameFormat: string;
 	seriesFolder: string;
 	seriesTemplateFile: string;
+	actorsPath: string,
+	directorsPath: string,
 
 	// Image settings
 	imagesFolder: string;
@@ -50,6 +52,8 @@ export const DEFAULT_SETTINGS: ObsidianKinopoiskPluginSettings = {
 	seriesFileNameFormat: "",
 	seriesFolder: "",
 	seriesTemplateFile: "",
+	actorsPath: "",
+	directorsPath: "",
 
 	// Image defaults
 	imagesFolder: "attachments/kinopoisk",
@@ -328,6 +332,7 @@ export class ObsidianKinopoiskSettingTab extends PluginSettingTab {
 					})
 			);
 
+
 		// Images settings section
 		new Setting(containerEl)
 			.setName(t("settings.imagesHeading"))
@@ -498,5 +503,40 @@ export class ObsidianKinopoiskSettingTab extends PluginSettingTab {
 				await this.plugin.saveSettings();
 			}
 		);
+
+		// Папка для актеров
+		new Setting(containerEl)
+			.setName("Actor file location")
+			.setDesc("Папка, куда будут сохраняться заметки об актерах.")
+			.addSearch((cb) => {
+				new FolderSuggest(this.app, cb.inputEl, (folder) => {
+					this.plugin.settings.actorsPath = folder;
+					this.plugin.saveSettings();
+				});
+				cb.setPlaceholder("Example: People/Actors")
+					.setValue(this.plugin.settings.actorsPath)
+					.onChange(async (newFolder) => {
+						this.plugin.settings.actorsPath = newFolder;
+						await this.plugin.saveSettings();
+					});
+			});
+
+		// Папка для режисеров
+		new Setting(containerEl)
+			.setName("Director file location")
+			.setDesc("Папка, куда будут сохраняться заметки об режисерах.")
+			.addSearch((cb) => {
+				new FolderSuggest(this.app, cb.inputEl, (folder) => {
+					this.plugin.settings.directorsPath = folder;
+					this.plugin.saveSettings();
+				});
+				cb.setPlaceholder("Example: People/Actors")
+					.setValue(this.plugin.settings.directorsPath)
+					.onChange(async (newFolder) => {
+						this.plugin.settings.directorsPath = newFolder;
+						await this.plugin.saveSettings();
+					});
+			});
+
 	}
 }
