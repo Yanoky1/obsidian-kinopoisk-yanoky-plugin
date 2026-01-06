@@ -15,6 +15,7 @@ export interface KinopoiskSuggestItem {
 	type: string;
 	year: number;
 	poster?: KinopoiskImageUrl;
+	rating?: KinopoiskRatings;
 }
 
 /**

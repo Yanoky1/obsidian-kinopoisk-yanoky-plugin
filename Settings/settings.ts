@@ -31,8 +31,12 @@ export interface ObsidianKinopoiskPluginSettings {
 	seriesFileNameFormat: string;
 	seriesFolder: string;
 	seriesTemplateFile: string;
-	actorsPath: string,
-	directorsPath: string,
+
+	// actors settings
+	actorsPath: string;
+	directorsPath: string;
+	writersPath: string;
+	producersPath: string;
 
 	// Image settings
 	imagesFolder: string;
@@ -52,8 +56,12 @@ export const DEFAULT_SETTINGS: ObsidianKinopoiskPluginSettings = {
 	seriesFileNameFormat: "",
 	seriesFolder: "",
 	seriesTemplateFile: "",
+
+	// Image settings
 	actorsPath: "",
 	directorsPath: "",
+	writersPath: "",
+	producersPath: "",
 
 	// Image defaults
 	imagesFolder: "attachments/kinopoisk",
@@ -504,16 +512,21 @@ export class ObsidianKinopoiskSettingTab extends PluginSettingTab {
 			}
 		);
 
+		// People settings section
+		new Setting(containerEl)
+			.setName(t("settings.peopleHeading"))
+			.setHeading();
+
 		// Папка для актеров
 		new Setting(containerEl)
-			.setName("Actor file location")
-			.setDesc("Папка, куда будут сохраняться заметки об актерах.")
+			.setName(t("settings.actorsFileLocation"))
+			.setDesc(t("settings.actorsFileLocationDesc"))
 			.addSearch((cb) => {
 				new FolderSuggest(this.app, cb.inputEl, (folder) => {
 					this.plugin.settings.actorsPath = folder;
 					this.plugin.saveSettings();
 				});
-				cb.setPlaceholder("Example: People/Actors")
+				cb.setPlaceholder(t("settings.actorsFileLocationPlaceholder"))
 					.setValue(this.plugin.settings.actorsPath)
 					.onChange(async (newFolder) => {
 						this.plugin.settings.actorsPath = newFolder;
@@ -521,19 +534,53 @@ export class ObsidianKinopoiskSettingTab extends PluginSettingTab {
 					});
 			});
 
-		// Папка для режисеров
+		// Папка для режиссеров
 		new Setting(containerEl)
-			.setName("Director file location")
-			.setDesc("Папка, куда будут сохраняться заметки об режисерах.")
+			.setName(t("settings.directorsFileLocation"))
+			.setDesc(t("settings.directorsFileLocationDesc"))
 			.addSearch((cb) => {
 				new FolderSuggest(this.app, cb.inputEl, (folder) => {
 					this.plugin.settings.directorsPath = folder;
 					this.plugin.saveSettings();
 				});
-				cb.setPlaceholder("Example: People/Actors")
+				cb.setPlaceholder(t("settings.directorsFileLocationPlaceholder"))
 					.setValue(this.plugin.settings.directorsPath)
 					.onChange(async (newFolder) => {
 						this.plugin.settings.directorsPath = newFolder;
+						await this.plugin.saveSettings();
+					});
+			});
+
+		// Папка для сценаристов
+		new Setting(containerEl)
+			.setName(t("settings.writersFileLocation"))
+			.setDesc(t("settings.writersFileLocationDesc"))
+			.addSearch((cb) => {
+				new FolderSuggest(this.app, cb.inputEl, (folder) => {
+					this.plugin.settings.writersPath = folder;
+					this.plugin.saveSettings();
+				});
+				cb.setPlaceholder(t("settings.writersFileLocationPlaceholder"))
+					.setValue(this.plugin.settings.writersPath)
+					.onChange(async (newFolder) => {
+						this.plugin.settings.writersPath = newFolder;
+						await this.plugin.saveSettings();
+					});
+			});
+
+		// Папка для продюсеров
+		new Setting(containerEl)
+			.setName(t("settings.producersFileLocation"))
+			.setDesc(t("settings.producersFileLocationDesc"))
+			.addSearch((cb) => {
+				new FolderSuggest(this.app, cb.inputEl, (folder) => {
+					this.plugin.settings.producersPath = folder;
+					this.plugin.saveSettings();
+				});
+				cb.setPlaceholder(t("settings.producersFileLocationPlaceholder"))
+					.setValue(this.plugin.settings.producersPath)
+					.onChange(async (newFolder) => {
+						this.plugin.settings.producersPath = newFolder;
 						await this.plugin.saveSettings();
 					});
 			});

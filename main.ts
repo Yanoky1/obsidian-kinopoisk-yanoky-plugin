@@ -98,7 +98,7 @@ export default class ObsidianKinopoiskPlugin extends Plugin {
 				console.warn("No new leaf");
 				return;
 			}
-			await newLeaf.openFile(targetFile, { state: { mode: "source" } });
+			await newLeaf.openFile(targetFile, { state: { mode: "preview" } });
 			newLeaf.setEphemeralState({ rename: "all" });
 
 			// Jump cursor to next template location

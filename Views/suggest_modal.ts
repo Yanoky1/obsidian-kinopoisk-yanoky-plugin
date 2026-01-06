@@ -29,7 +29,12 @@ export class ItemsSuggestModal extends SuggestModal<KinopoiskSuggestItem> {
 	) {
 		super(plugin.app);
 		this.token = plugin.settings.apiToken;
-		this.kinopoiskProvider = new KinopoiskProvider();
+		this.kinopoiskProvider = new KinopoiskProvider({
+			actorsPath: plugin.settings.actorsPath,
+			directorsPath: plugin.settings.directorsPath,
+			writersPath: plugin.settings.writersPath,
+			producersPath: plugin.settings.producersPath
+		});
 	}
 
 	// Filters suggestions by search query
@@ -91,8 +96,8 @@ export class ItemsSuggestModal extends SuggestModal<KinopoiskSuggestItem> {
 			const reason = !posterUrl
 				? t("modals.posterTooltipMissing")
 				: posterUrl.trim() === ""
-				? t("modals.posterTooltipEmptyLink")
-				: t("modals.posterTooltipInvalidLink");
+					? t("modals.posterTooltipEmptyLink")
+					: t("modals.posterTooltipInvalidLink");
 			placeholder.title = reason;
 
 			return placeholder;
@@ -102,7 +107,7 @@ export class ItemsSuggestModal extends SuggestModal<KinopoiskSuggestItem> {
 	// Renders list item with poster and movie info
 	renderSuggestion(item: KinopoiskSuggestItem, el: HTMLElement) {
 		const title = item.name;
-		const subtitle = `${item.year}, ${item.alternativeName} (${item.type})`;
+		const subtitle = `Тип: ${item.type}, Год: ${item.year}, KP: ${Number(item.rating?.kp?.toFixed(0))}, IMDB: ${Number(item.rating?.imdb?.toFixed(0))} `;
 
 		const container = el.createEl("div", {
 			cls: "kinopoisk-plugin__suggest-item",

@@ -152,6 +152,19 @@ export interface Translations {
 		seriesTemplateFile: string;
 		seriesTemplateFileDesc: string;
 		seriesTemplateFilePlaceholder: string;
+		peopleHeading: string;
+		actorsFileLocation: string;
+		actorsFileLocationDesc: string;
+		actorsFileLocationPlaceholder: string;
+		directorsFileLocation: string;
+		directorsFileLocationDesc: string;
+		directorsFileLocationPlaceholder: string;
+		writersFileLocation: string;
+		writersFileLocationDesc: string;
+		writersFileLocationPlaceholder: string;
+		producersFileLocation: string;
+		producersFileLocationDesc: string;
+		producersFileLocationPlaceholder: string;
 		language: string;
 		languageDesc: string;
 	};
@@ -324,6 +337,19 @@ const ru: Translations = {
 		seriesTemplateFile: "Файл шаблона для сериалов",
 		seriesTemplateFileDesc: "Файлы будут доступны как шаблоны.",
 		seriesTemplateFilePlaceholder: "Например: templates/template-file",
+		peopleHeading: "Настройки персон",
+		actorsFileLocation: "Папка для актёров",
+		actorsFileLocationDesc: "Папка, в которой будут создаваться заметки об актёрах",
+		actorsFileLocationPlaceholder: "Пример: Люди/Актёры",
+		directorsFileLocation: "Папка для режиссёров",
+		directorsFileLocationDesc: "Папка, в которой будут создаваться заметки о режиссёрах",
+		directorsFileLocationPlaceholder: "Пример: Люди/Режиссёры",
+		writersFileLocation: "Папка для сценаристов",
+		writersFileLocationDesc: "Папка, в которой будут создаваться заметки о сценаристах",
+		writersFileLocationPlaceholder: "Пример: Люди/Сценаристы",
+		producersFileLocation: "Папка для продюсеров",
+		producersFileLocationDesc: "Папка, в которой будут создаваться заметки о продюсерах",
+		producersFileLocationPlaceholder: "Пример: Люди/Продюсеры",
 		language: "Язык интерфейса",
 		languageDesc: "Выберите язык интерфейса плагина.",
 	},
@@ -489,6 +515,19 @@ const en: Translations = {
 		seriesTemplateFile: "TV series template file",
 		seriesTemplateFileDesc: "Files will be available as templates.",
 		seriesTemplateFilePlaceholder: "Example: templates/template-file",
+		peopleHeading: "People Settings",
+		actorsFileLocation: "Actors folder",
+		actorsFileLocationDesc: "Folder where actor notes will be created",
+		actorsFileLocationPlaceholder: "Example: People/Actors",
+		directorsFileLocation: "Directors folder",
+		directorsFileLocationDesc: "Folder where director notes will be created",
+		directorsFileLocationPlaceholder: "Example: People/Directors",
+		writersFileLocation: "Writers folder",
+		writersFileLocationDesc: "Folder where writer notes will be created",
+		writersFileLocationPlaceholder: "Example: People/Writers",
+		producersFileLocation: "Producers folder",
+		producersFileLocationDesc: "Folder where producer notes will be created",
+		producersFileLocationPlaceholder: "Example: People/Producers",
 		language: "Interface language",
 		languageDesc: "Select the plugin interface language.",
 	},

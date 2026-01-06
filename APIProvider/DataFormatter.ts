@@ -43,14 +43,17 @@ enum FormatType {
 	SHORT_VALUE = "short", // Short values without quotes (genres, actors)
 	LONG_TEXT = "long", // Long texts with quotes (descriptions)
 	URL = "url", // URLs without quotes
-	LINK = "link", // Obsidian links with quotes
-	ActorsLINK = "actors_link", // Obsidian links with quotes
+	LINK = "link", // [[name]]
+	LINK_WITH_PATH = "link_with_path", // [[path/name]]
+	LINK_ID_WITH_PATH = "link_id_with_path", // [[path/ID|name]]
 }
 
 export class DataFormatter {
 	private settings?: {
 		actorsPath: string;
 		directorsPath: string;
+		writersPath: string;
+		producersPath: string;
 	};
 
 	/**
@@ -59,6 +62,8 @@ export class DataFormatter {
 	public setSettings(settings: {
 		actorsPath: string;
 		directorsPath: string;
+		writersPath: string;
+		producersPath: string;
 	}): void {
 		this.settings = settings;
 	}
@@ -150,20 +155,57 @@ export class DataFormatter {
 			),
 
 			// People
-			director: this.formatArray(
+			director: this.formatArray(people.directors, FormatType.SHORT_VALUE),
+			directorsLinks: this.formatArray(people.directors, FormatType.LINK),
+			directorsLinksWithPath: this.formatArray(
 				people.directors,
-				FormatType.SHORT_VALUE
+				FormatType.LINK_WITH_PATH,
+				this.settings?.directorsPath
 			),
-			directorsLinks: this.formatArray(people.directors, FormatType.LINK, this.settings?.directorsPath),
+			directorsIdsWithPath: this.formatArray(
+				people.directors,
+				FormatType.LINK_ID_WITH_PATH,
+				this.settings?.directorsPath
+			),
+
 			actors: this.formatArray(people.actors, FormatType.SHORT_VALUE),
-			actorsLinks: this.formatArray(people.actors, FormatType.LINK,  MAX_ARRAY_ITEMS, this.settings?.actorsPath),
+			actorsLinks: this.formatArray(people.actors, FormatType.LINK),
+			actorsLinksWithPath: this.formatArray(
+				people.actors,
+				FormatType.LINK_WITH_PATH,
+				this.settings?.actorsPath
+			),
+			actorsIdsWithPath: this.formatArray(
+				people.actors,
+				FormatType.LINK_ID_WITH_PATH,
+				this.settings?.actorsPath
+			),
+
 			writers: this.formatArray(people.writers, FormatType.SHORT_VALUE),
 			writersLinks: this.formatArray(people.writers, FormatType.LINK),
-			producers: this.formatArray(
-				people.producers,
-				FormatType.SHORT_VALUE
+			writersLinksWithPath: this.formatArray(
+				people.writers,
+				FormatType.LINK_WITH_PATH,
+				this.settings?.writersPath
 			),
+			writersIdsWithPath: this.formatArray(
+				people.writers,
+				FormatType.LINK_ID_WITH_PATH,
+				this.settings?.writersPath
+			),
+
+			producers: this.formatArray(people.producers, FormatType.SHORT_VALUE),
 			producersLinks: this.formatArray(people.producers, FormatType.LINK),
+			producersLinksWithPath: this.formatArray(
+				people.producers,
+				FormatType.LINK_WITH_PATH,
+				this.settings?.producersPath
+			),
+			producersIdsWithPath: this.formatArray(
+				people.producers,
+				FormatType.LINK_ID_WITH_PATH,
+				this.settings?.producersPath
+			),
 
 			// Technical specifications
 			movieLength: fullInfo.movieLength || 0,
@@ -175,8 +217,8 @@ export class DataFormatter {
 			seriesInSeasonCount: seasonsData.averageEpisodesPerSeason,
 
 			// Ratings and votes
-			ratingKp: fullInfo.rating?.kp || 0,
-			ratingImdb: fullInfo.rating?.imdb || 0,
+			ratingKp: fullInfo.rating?.kp ? Number(fullInfo.rating?.kp?.toFixed(0)) : 0,
+			ratingImdb: fullInfo.rating ? Number(fullInfo.rating?.imdb?.toFixed(0)) : 0,
 			ratingFilmCritics: fullInfo.rating?.filmCritics || 0,
 			ratingRussianFilmCritics: fullInfo.rating?.russianFilmCritics || 0,
 			votesKp: fullInfo.votes?.kp || 0,
@@ -299,8 +341,8 @@ export class DataFormatter {
 					this.formatDate(
 						fullInfo.distributors?.distributorRelease
 					) ||
-						fullInfo.distributors?.distributorRelease ||
-						"",
+					fullInfo.distributors?.distributorRelease ||
+					"",
 				],
 				FormatType.SHORT_VALUE
 			),
@@ -323,13 +365,35 @@ export class DataFormatter {
 	 * Universal array formatting based on type
 	 */
 	private formatArray(
-		items: string[],
+		items: string[] | Array<{ name: string; id?: number }>,
 		formatType: FormatType,
-		maxItems = MAX_ARRAY_ITEMS
-
+		folderPath?: string,
+		maxItems: number = MAX_ARRAY_ITEMS
 	): string[] {
-		const filteredItems = items
-			.filter((item) => item && item.trim() !== "")
+		// Для ссылок с ID и путем
+		if (formatType === FormatType.LINK_ID_WITH_PATH) {
+			const personItems = items as Array<{ name: string; id?: number }>;
+			return personItems
+				.filter((item) => item.name && item.name.trim() !== "")
+				.slice(0, maxItems)
+				.map((item) => {
+					const cleanName = this.cleanTextForMetadata(item.name);
+					if (folderPath && folderPath.trim() !== "" && item.id) {
+						return `"[[${folderPath}/${item.id}|${cleanName}]]"`;
+					} else if (item.id) {
+						return `"[[${item.id}|${cleanName}]]"`;
+					}
+					return `"[[${cleanName}]]"`;
+				});
+		}
+
+		// Преобразуем объекты в строки для остальных типов
+		const stringItems = (items as any[]).map(item =>
+			typeof item === 'object' && item.name ? item.name : item
+		);
+
+		const filteredItems = stringItems
+			.filter((item): item is string => typeof item === 'string' && item.trim() !== "")
 			.slice(0, maxItems);
 
 		switch (formatType) {
@@ -351,11 +415,21 @@ export class DataFormatter {
 				return filteredItems.map((item) => item.trim());
 
 			case FormatType.LINK:
-				return filteredItems.map(
-					(item) => `"[[${this.cleanTextForMetadata(item)}]]"`
-				);
+				// [[Имя]]
+				return filteredItems.map((item) => {
+					const cleanName = this.cleanTextForMetadata(item);
+					return `"[[${cleanName}]]"`;
+				});
 
-				
+			case FormatType.LINK_WITH_PATH:
+				// [[путь/Имя]]
+				return filteredItems.map((item) => {
+					const cleanName = this.cleanTextForMetadata(item);
+					if (folderPath && folderPath.trim() !== "") {
+						return `"[[${folderPath}/${cleanName}]]"`;
+					}
+					return `"[[${cleanName}]]"`;
+				});
 
 			default:
 				return filteredItems;
@@ -390,39 +464,53 @@ export class DataFormatter {
 	/**
 	 * Extracts people by profession from persons array
 	 */
+	/**
+ * Extracts people by profession from persons array
+ */
 	private extractPeople(persons: KinopoiskPerson[]): {
-		directors: string[];
-		actors: string[];
-		writers: string[];
-		producers: string[];
+		directors: Array<{ name: string; id?: number }>;
+		actors: Array<{ name: string; id?: number }>;
+		writers: Array<{ name: string; id?: number }>;
+		producers: Array<{ name: string; id?: number }>;
 	} {
 		const result = {
-			directors: [] as string[],
-			actors: [] as string[],
-			writers: [] as string[],
-			producers: [] as string[],
+			directors: [] as Array<{ name: string; id?: number }>,
+			actors: [] as Array<{ name: string; id?: number }>,
+			writers: [] as Array<{ name: string; id?: number }>,
+			producers: [] as Array<{ name: string; id?: number }>,
 		};
 
 		for (const person of persons) {
 			if (!person.name || !person.enProfession) continue;
 
+			const personData = { name: person.name, id: person.id };
+
 			switch (person.enProfession) {
 				case "director":
-					result.directors.push(person.name);
+					result.directors.push(personData);
 					break;
 				case "actor":
-					result.actors.push(person.name);
+					result.actors.push(personData);
 					break;
 				case "writer":
-					result.writers.push(person.name);
+					result.writers.push(personData);
 					break;
 				case "producer":
-					result.producers.push(person.name);
+					result.producers.push(personData);
 					break;
 			}
 		}
 
 		return result;
+	}
+
+	/**
+	* Extracts IDs from person objects
+	*/
+	private extractPersonIds(persons: Array<{ name: string; id?: number }>): number[] {
+		return persons
+			.map(person => person.id)
+			.filter((id): id is number => id !== undefined);
 	}
 
 	/**

@@ -174,6 +174,19 @@ var ru = {
     seriesTemplateFile: "\u0424\u0430\u0439\u043B \u0448\u0430\u0431\u043B\u043E\u043D\u0430 \u0434\u043B\u044F \u0441\u0435\u0440\u0438\u0430\u043B\u043E\u0432",
     seriesTemplateFileDesc: "\u0424\u0430\u0439\u043B\u044B \u0431\u0443\u0434\u0443\u0442 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B \u043A\u0430\u043A \u0448\u0430\u0431\u043B\u043E\u043D\u044B.",
     seriesTemplateFilePlaceholder: "\u041D\u0430\u043F\u0440\u0438\u043C\u0435\u0440: templates/template-file",
+    peopleHeading: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u043F\u0435\u0440\u0441\u043E\u043D",
+    actorsFileLocation: "\u041F\u0430\u043F\u043A\u0430 \u0434\u043B\u044F \u0430\u043A\u0442\u0451\u0440\u043E\u0432",
+    actorsFileLocationDesc: "\u041F\u0430\u043F\u043A\u0430, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0431\u0443\u0434\u0443\u0442 \u0441\u043E\u0437\u0434\u0430\u0432\u0430\u0442\u044C\u0441\u044F \u0437\u0430\u043C\u0435\u0442\u043A\u0438 \u043E\u0431 \u0430\u043A\u0442\u0451\u0440\u0430\u0445",
+    actorsFileLocationPlaceholder: "\u041F\u0440\u0438\u043C\u0435\u0440: \u041B\u044E\u0434\u0438/\u0410\u043A\u0442\u0451\u0440\u044B",
+    directorsFileLocation: "\u041F\u0430\u043F\u043A\u0430 \u0434\u043B\u044F \u0440\u0435\u0436\u0438\u0441\u0441\u0451\u0440\u043E\u0432",
+    directorsFileLocationDesc: "\u041F\u0430\u043F\u043A\u0430, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0431\u0443\u0434\u0443\u0442 \u0441\u043E\u0437\u0434\u0430\u0432\u0430\u0442\u044C\u0441\u044F \u0437\u0430\u043C\u0435\u0442\u043A\u0438 \u043E \u0440\u0435\u0436\u0438\u0441\u0441\u0451\u0440\u0430\u0445",
+    directorsFileLocationPlaceholder: "\u041F\u0440\u0438\u043C\u0435\u0440: \u041B\u044E\u0434\u0438/\u0420\u0435\u0436\u0438\u0441\u0441\u0451\u0440\u044B",
+    writersFileLocation: "\u041F\u0430\u043F\u043A\u0430 \u0434\u043B\u044F \u0441\u0446\u0435\u043D\u0430\u0440\u0438\u0441\u0442\u043E\u0432",
+    writersFileLocationDesc: "\u041F\u0430\u043F\u043A\u0430, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0431\u0443\u0434\u0443\u0442 \u0441\u043E\u0437\u0434\u0430\u0432\u0430\u0442\u044C\u0441\u044F \u0437\u0430\u043C\u0435\u0442\u043A\u0438 \u043E \u0441\u0446\u0435\u043D\u0430\u0440\u0438\u0441\u0442\u0430\u0445",
+    writersFileLocationPlaceholder: "\u041F\u0440\u0438\u043C\u0435\u0440: \u041B\u044E\u0434\u0438/\u0421\u0446\u0435\u043D\u0430\u0440\u0438\u0441\u0442\u044B",
+    producersFileLocation: "\u041F\u0430\u043F\u043A\u0430 \u0434\u043B\u044F \u043F\u0440\u043E\u0434\u044E\u0441\u0435\u0440\u043E\u0432",
+    producersFileLocationDesc: "\u041F\u0430\u043F\u043A\u0430, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u0439 \u0431\u0443\u0434\u0443\u0442 \u0441\u043E\u0437\u0434\u0430\u0432\u0430\u0442\u044C\u0441\u044F \u0437\u0430\u043C\u0435\u0442\u043A\u0438 \u043E \u043F\u0440\u043E\u0434\u044E\u0441\u0435\u0440\u0430\u0445",
+    producersFileLocationPlaceholder: "\u041F\u0440\u0438\u043C\u0435\u0440: \u041B\u044E\u0434\u0438/\u041F\u0440\u043E\u0434\u044E\u0441\u0435\u0440\u044B",
     language: "\u042F\u0437\u044B\u043A \u0438\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441\u0430",
     languageDesc: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u044F\u0437\u044B\u043A \u0438\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441\u0430 \u043F\u043B\u0430\u0433\u0438\u043D\u0430."
   }
@@ -316,6 +329,19 @@ var en = {
     seriesTemplateFile: "TV series template file",
     seriesTemplateFileDesc: "Files will be available as templates.",
     seriesTemplateFilePlaceholder: "Example: templates/template-file",
+    peopleHeading: "People Settings",
+    actorsFileLocation: "Actors folder",
+    actorsFileLocationDesc: "Folder where actor notes will be created",
+    actorsFileLocationPlaceholder: "Example: People/Actors",
+    directorsFileLocation: "Directors folder",
+    directorsFileLocationDesc: "Folder where director notes will be created",
+    directorsFileLocationPlaceholder: "Example: People/Directors",
+    writersFileLocation: "Writers folder",
+    writersFileLocationDesc: "Folder where writer notes will be created",
+    writersFileLocationPlaceholder: "Example: People/Writers",
+    producersFileLocation: "Producers folder",
+    producersFileLocationDesc: "Folder where producer notes will be created",
+    producersFileLocationPlaceholder: "Example: People/Producers",
     language: "Interface language",
     languageDesc: "Select the plugin interface language."
   }
@@ -677,7 +703,7 @@ async function getTemplateContents(app, templatePath) {
 }
 
 // APIProvider/DataFormatter.ts
-var MAX_ARRAY_ITEMS = 15;
+var MAX_ARRAY_ITEMS = 50;
 var MAX_FACTS_COUNT = 5;
 var TYPE_TRANSLATIONS = {
   "animated-series": "\u0410\u043D\u0438\u043C\u0430\u0446\u0438\u043E\u043D\u043D\u044B\u0439 \u0441\u0435\u0440\u0438\u0430\u043B",
@@ -704,10 +730,16 @@ var HTML_ENTITIES = {
 };
 var DataFormatter = class {
   /**
+   * Set settings for path support
+   */
+  setSettings(settings) {
+    this.settings = settings;
+  }
+  /**
    * Transforms API data into MovieShow format
    */
   createMovieShowFrom(fullInfo) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _A, _B, _C, _D, _E, _F, _G, _H, _I, _J, _K, _L, _M;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _A, _B, _C, _D, _E, _F, _G, _H, _I, _J, _K, _L, _M, _N, _O, _P, _Q, _R, _S, _T, _U, _V, _W, _X;
     const seasonsData = this.calculateSeasonsData(fullInfo.seasonsInfo);
     const people = this.extractPeople(fullInfo.persons || []);
     const companies = this.extractCompanies(fullInfo);
@@ -784,20 +816,54 @@ var DataFormatter = class {
         "short" /* SHORT_VALUE */
       ),
       // People
-      director: this.formatArray(
+      director: this.formatArray(people.directors, "short" /* SHORT_VALUE */),
+      directorsLinks: this.formatArray(people.directors, "link" /* LINK */),
+      directorsLinksWithPath: this.formatArray(
         people.directors,
-        "short" /* SHORT_VALUE */
+        "link_with_path" /* LINK_WITH_PATH */,
+        (_h = this.settings) == null ? void 0 : _h.directorsPath
       ),
-      directorsLinks: this.formatArray(people.directors, "actors_link" /* ActorsLINK */),
+      directorsIdsWithPath: this.formatArray(
+        people.directors,
+        "link_id_with_path" /* LINK_ID_WITH_PATH */,
+        (_i = this.settings) == null ? void 0 : _i.directorsPath
+      ),
       actors: this.formatArray(people.actors, "short" /* SHORT_VALUE */),
-      actorsLinks: this.formatArray(people.actors, "actors_link" /* ActorsLINK */),
-      writers: this.formatArray(people.writers, "short" /* SHORT_VALUE */),
-      writersLinks: this.formatArray(people.writers, "actors_link" /* ActorsLINK */),
-      producers: this.formatArray(
-        people.producers,
-        "short" /* SHORT_VALUE */
+      actorsLinks: this.formatArray(people.actors, "link" /* LINK */),
+      actorsLinksWithPath: this.formatArray(
+        people.actors,
+        "link_with_path" /* LINK_WITH_PATH */,
+        (_j = this.settings) == null ? void 0 : _j.actorsPath
       ),
-      producersLinks: this.formatArray(people.producers, "actors_link" /* ActorsLINK */),
+      actorsIdsWithPath: this.formatArray(
+        people.actors,
+        "link_id_with_path" /* LINK_ID_WITH_PATH */,
+        (_k = this.settings) == null ? void 0 : _k.actorsPath
+      ),
+      writers: this.formatArray(people.writers, "short" /* SHORT_VALUE */),
+      writersLinks: this.formatArray(people.writers, "link" /* LINK */),
+      writersLinksWithPath: this.formatArray(
+        people.writers,
+        "link_with_path" /* LINK_WITH_PATH */,
+        (_l = this.settings) == null ? void 0 : _l.writersPath
+      ),
+      writersIdsWithPath: this.formatArray(
+        people.writers,
+        "link_id_with_path" /* LINK_ID_WITH_PATH */,
+        (_m = this.settings) == null ? void 0 : _m.writersPath
+      ),
+      producers: this.formatArray(people.producers, "short" /* SHORT_VALUE */),
+      producersLinks: this.formatArray(people.producers, "link" /* LINK */),
+      producersLinksWithPath: this.formatArray(
+        people.producers,
+        "link_with_path" /* LINK_WITH_PATH */,
+        (_n = this.settings) == null ? void 0 : _n.producersPath
+      ),
+      producersIdsWithPath: this.formatArray(
+        people.producers,
+        "link_id_with_path" /* LINK_ID_WITH_PATH */,
+        (_o = this.settings) == null ? void 0 : _o.producersPath
+      ),
       // Technical specifications
       movieLength: fullInfo.movieLength || 0,
       isSeries: fullInfo.isSeries,
@@ -807,26 +873,26 @@ var DataFormatter = class {
       seasonsCount: seasonsData.count,
       seriesInSeasonCount: seasonsData.averageEpisodesPerSeason,
       // Ratings and votes
-      ratingKp: ((_h = fullInfo.rating) == null ? void 0 : _h.kp) || 0,
-      ratingImdb: ((_i = fullInfo.rating) == null ? void 0 : _i.imdb) || 0,
-      ratingFilmCritics: ((_j = fullInfo.rating) == null ? void 0 : _j.filmCritics) || 0,
-      ratingRussianFilmCritics: ((_k = fullInfo.rating) == null ? void 0 : _k.russianFilmCritics) || 0,
-      votesKp: ((_l = fullInfo.votes) == null ? void 0 : _l.kp) || 0,
-      votesImdb: ((_m = fullInfo.votes) == null ? void 0 : _m.imdb) || 0,
-      votesFilmCritics: ((_n = fullInfo.votes) == null ? void 0 : _n.filmCritics) || 0,
-      votesRussianFilmCritics: ((_o = fullInfo.votes) == null ? void 0 : _o.russianFilmCritics) || 0,
+      ratingKp: ((_p = fullInfo.rating) == null ? void 0 : _p.kp) ? Number((_r = (_q = fullInfo.rating) == null ? void 0 : _q.kp) == null ? void 0 : _r.toFixed(0)) : 0,
+      ratingImdb: fullInfo.rating ? Number((_t = (_s = fullInfo.rating) == null ? void 0 : _s.imdb) == null ? void 0 : _t.toFixed(0)) : 0,
+      ratingFilmCritics: ((_u = fullInfo.rating) == null ? void 0 : _u.filmCritics) || 0,
+      ratingRussianFilmCritics: ((_v = fullInfo.rating) == null ? void 0 : _v.russianFilmCritics) || 0,
+      votesKp: ((_w = fullInfo.votes) == null ? void 0 : _w.kp) || 0,
+      votesImdb: ((_x = fullInfo.votes) == null ? void 0 : _x.imdb) || 0,
+      votesFilmCritics: ((_y = fullInfo.votes) == null ? void 0 : _y.filmCritics) || 0,
+      votesRussianFilmCritics: ((_z = fullInfo.votes) == null ? void 0 : _z.russianFilmCritics) || 0,
       // External IDs and links
       kinopoiskUrl: this.formatArray(
         [`https://www.kinopoisk.ru/film/${fullInfo.id}/`],
         "url" /* URL */
       ),
       imdbId: this.formatArray(
-        [((_p = fullInfo.externalId) == null ? void 0 : _p.imdb) || ""],
+        [((_A = fullInfo.externalId) == null ? void 0 : _A.imdb) || ""],
         "short" /* SHORT_VALUE */
       ),
-      tmdbId: ((_q = fullInfo.externalId) == null ? void 0 : _q.tmdb) || 0,
+      tmdbId: ((_B = fullInfo.externalId) == null ? void 0 : _B.tmdb) || 0,
       kpHDId: this.formatArray(
-        [((_r = fullInfo.externalId) == null ? void 0 : _r.kpHD) || ""],
+        [((_C = fullInfo.externalId) == null ? void 0 : _C.kpHD) || ""],
         "short" /* SHORT_VALUE */
       ),
       // Additional information
@@ -840,41 +906,41 @@ var DataFormatter = class {
         "short" /* SHORT_VALUE */
       ),
       // Financial data
-      budgetValue: ((_s = fullInfo.budget) == null ? void 0 : _s.value) || 0,
+      budgetValue: ((_D = fullInfo.budget) == null ? void 0 : _D.value) || 0,
       budgetCurrency: this.formatArray(
-        [((_t = fullInfo.budget) == null ? void 0 : _t.currency) || ""],
+        [((_E = fullInfo.budget) == null ? void 0 : _E.currency) || ""],
         "short" /* SHORT_VALUE */
       ),
-      feesWorldValue: ((_v = (_u = fullInfo.fees) == null ? void 0 : _u.world) == null ? void 0 : _v.value) || 0,
+      feesWorldValue: ((_G = (_F = fullInfo.fees) == null ? void 0 : _F.world) == null ? void 0 : _G.value) || 0,
       feesWorldCurrency: this.formatArray(
-        [((_x = (_w = fullInfo.fees) == null ? void 0 : _w.world) == null ? void 0 : _x.currency) || ""],
+        [((_I = (_H = fullInfo.fees) == null ? void 0 : _H.world) == null ? void 0 : _I.currency) || ""],
         "short" /* SHORT_VALUE */
       ),
-      feesRussiaValue: ((_z = (_y = fullInfo.fees) == null ? void 0 : _y.russia) == null ? void 0 : _z.value) || 0,
+      feesRussiaValue: ((_K = (_J = fullInfo.fees) == null ? void 0 : _J.russia) == null ? void 0 : _K.value) || 0,
       feesRussiaCurrency: this.formatArray(
-        [((_B = (_A = fullInfo.fees) == null ? void 0 : _A.russia) == null ? void 0 : _B.currency) || ""],
+        [((_M = (_L = fullInfo.fees) == null ? void 0 : _L.russia) == null ? void 0 : _M.currency) || ""],
         "short" /* SHORT_VALUE */
       ),
-      feesUsaValue: ((_D = (_C = fullInfo.fees) == null ? void 0 : _C.usa) == null ? void 0 : _D.value) || 0,
+      feesUsaValue: ((_O = (_N = fullInfo.fees) == null ? void 0 : _N.usa) == null ? void 0 : _O.value) || 0,
       feesUsaCurrency: this.formatArray(
-        [((_F = (_E = fullInfo.fees) == null ? void 0 : _E.usa) == null ? void 0 : _F.currency) || ""],
+        [((_Q = (_P = fullInfo.fees) == null ? void 0 : _P.usa) == null ? void 0 : _Q.currency) || ""],
         "short" /* SHORT_VALUE */
       ),
       // Premiere dates
       premiereWorld: this.formatArray(
-        [this.formatDate((_G = fullInfo.premiere) == null ? void 0 : _G.world)],
+        [this.formatDate((_R = fullInfo.premiere) == null ? void 0 : _R.world)],
         "short" /* SHORT_VALUE */
       ),
       premiereRussia: this.formatArray(
-        [this.formatDate((_H = fullInfo.premiere) == null ? void 0 : _H.russia)],
+        [this.formatDate((_S = fullInfo.premiere) == null ? void 0 : _S.russia)],
         "short" /* SHORT_VALUE */
       ),
       premiereDigital: this.formatArray(
-        [this.formatDate((_I = fullInfo.premiere) == null ? void 0 : _I.digital)],
+        [this.formatDate((_T = fullInfo.premiere) == null ? void 0 : _T.digital)],
         "short" /* SHORT_VALUE */
       ),
       premiereCinema: this.formatArray(
-        [this.formatDate((_J = fullInfo.premiere) == null ? void 0 : _J.cinema)],
+        [this.formatDate((_U = fullInfo.premiere) == null ? void 0 : _U.cinema)],
         "short" /* SHORT_VALUE */
       ),
       // Release years
@@ -913,14 +979,14 @@ var DataFormatter = class {
       ),
       // Distributors
       distributor: this.formatArray(
-        [((_K = fullInfo.distributors) == null ? void 0 : _K.distributor) || ""],
+        [((_V = fullInfo.distributors) == null ? void 0 : _V.distributor) || ""],
         "short" /* SHORT_VALUE */
       ),
       distributorRelease: this.formatArray(
         [
           this.formatDate(
-            (_L = fullInfo.distributors) == null ? void 0 : _L.distributorRelease
-          ) || ((_M = fullInfo.distributors) == null ? void 0 : _M.distributorRelease) || ""
+            (_W = fullInfo.distributors) == null ? void 0 : _W.distributorRelease
+          ) || ((_X = fullInfo.distributors) == null ? void 0 : _X.distributorRelease) || ""
         ],
         "short" /* SHORT_VALUE */
       ),
@@ -939,8 +1005,23 @@ var DataFormatter = class {
   /**
    * Universal array formatting based on type
    */
-  formatArray(items, formatType, maxItems = MAX_ARRAY_ITEMS) {
-    const filteredItems = items.filter((item) => item && item.trim() !== "").slice(0, maxItems);
+  formatArray(items, formatType, folderPath, maxItems = MAX_ARRAY_ITEMS) {
+    if (formatType === "link_id_with_path" /* LINK_ID_WITH_PATH */) {
+      const personItems = items;
+      return personItems.filter((item) => item.name && item.name.trim() !== "").slice(0, maxItems).map((item) => {
+        const cleanName = this.cleanTextForMetadata(item.name);
+        if (folderPath && folderPath.trim() !== "" && item.id) {
+          return `"[[${folderPath}/${item.id}|${cleanName}]]"`;
+        } else if (item.id) {
+          return `"[[${item.id}|${cleanName}]]"`;
+        }
+        return `"[[${cleanName}]]"`;
+      });
+    }
+    const stringItems = items.map(
+      (item) => typeof item === "object" && item.name ? item.name : item
+    );
+    const filteredItems = stringItems.filter((item) => typeof item === "string" && item.trim() !== "").slice(0, maxItems);
     switch (formatType) {
       case "short" /* SHORT_VALUE */:
         return filteredItems.map(
@@ -954,13 +1035,18 @@ var DataFormatter = class {
       case "url" /* URL */:
         return filteredItems.map((item) => item.trim());
       case "link" /* LINK */:
-        return filteredItems.map(
-          (item) => `"[[${this.cleanTextForMetadata(item)}]]"`
-        );
-      case "actors_link" /* ActorsLINK */:
-        return filteredItems.map(
-          (item) => `"[[Dataview/\u041A\u0438\u043D\u043E/\u0410\u043A\u0442\u0435\u0440\u044B_\u0420\u0435\u0436\u0438\u0441\u0441\u0435\u0440\u044B/${this.cleanTextForMetadata(item)}]]"`
-        );
+        return filteredItems.map((item) => {
+          const cleanName = this.cleanTextForMetadata(item);
+          return `"[[${cleanName}]]"`;
+        });
+      case "link_with_path" /* LINK_WITH_PATH */:
+        return filteredItems.map((item) => {
+          const cleanName = this.cleanTextForMetadata(item);
+          if (folderPath && folderPath.trim() !== "") {
+            return `"[[${folderPath}/${cleanName}]]"`;
+          }
+          return `"[[${cleanName}]]"`;
+        });
       default:
         return filteredItems;
     }
@@ -985,6 +1071,9 @@ var DataFormatter = class {
   /**
    * Extracts people by profession from persons array
    */
+  /**
+  * Extracts people by profession from persons array
+  */
   extractPeople(persons) {
     const result = {
       directors: [],
@@ -994,22 +1083,29 @@ var DataFormatter = class {
     };
     for (const person of persons) {
       if (!person.name || !person.enProfession) continue;
+      const personData = { name: person.name, id: person.id };
       switch (person.enProfession) {
         case "director":
-          result.directors.push(person.name);
+          result.directors.push(personData);
           break;
         case "actor":
-          result.actors.push(person.name);
+          result.actors.push(personData);
           break;
         case "writer":
-          result.writers.push(person.name);
+          result.writers.push(personData);
           break;
         case "producer":
-          result.producers.push(person.name);
+          result.producers.push(personData);
           break;
       }
     }
     return result;
+  }
+  /**
+  * Extracts IDs from person objects
+  */
+  extractPersonIds(persons) {
+    return persons.map((person) => person.id).filter((id) => id !== void 0);
   }
   /**
    * Extracts companies and related movies from API response
@@ -1210,10 +1306,13 @@ var ApiValidator = class {
 var API_BASE_URL = "https://api.kinopoisk.dev/v1.4";
 var MAX_SEARCH_RESULTS = 50;
 var KinopoiskProvider = class {
-  constructor() {
+  constructor(settings) {
     this.errorHandler = new ErrorHandler();
     this.dataFormatter = new DataFormatter();
     this.validator = new ApiValidator();
+    if (settings) {
+      this.dataFormatter.setSettings(settings);
+    }
   }
   /**
    * Performs HTTP GET request to API
@@ -1327,7 +1426,12 @@ var SearchModal = class extends import_obsidian3.Modal {
       }
     };
     this.token = plugin.settings.apiToken;
-    this.kinopoiskProvider = new KinopoiskProvider();
+    this.kinopoiskProvider = new KinopoiskProvider({
+      actorsPath: plugin.settings.actorsPath,
+      directorsPath: plugin.settings.directorsPath,
+      writersPath: plugin.settings.writersPath,
+      producersPath: plugin.settings.producersPath
+    });
   }
   // Manages UI loading state
   setBusy(busy) {
@@ -1824,7 +1928,12 @@ var ItemsSuggestModal = class extends import_obsidian5.SuggestModal {
     this.onChoose = onChoose;
     this.token = "";
     this.token = plugin.settings.apiToken;
-    this.kinopoiskProvider = new KinopoiskProvider();
+    this.kinopoiskProvider = new KinopoiskProvider({
+      actorsPath: plugin.settings.actorsPath,
+      directorsPath: plugin.settings.directorsPath,
+      writersPath: plugin.settings.writersPath,
+      producersPath: plugin.settings.producersPath
+    });
   }
   // Filters suggestions by search query
   getSuggestions(query) {
@@ -1873,8 +1982,9 @@ var ItemsSuggestModal = class extends import_obsidian5.SuggestModal {
   }
   // Renders list item with poster and movie info
   renderSuggestion(item, el) {
+    var _a, _b, _c, _d;
     const title = item.name;
-    const subtitle = `${item.year}, ${item.alternativeName} (${item.type})`;
+    const subtitle = `\u0422\u0438\u043F: ${item.type}, \u0413\u043E\u0434: ${item.year}, KP: ${Number((_b = (_a = item.rating) == null ? void 0 : _a.kp) == null ? void 0 : _b.toFixed(0))}, IMDB: ${Number((_d = (_c = item.rating) == null ? void 0 : _c.imdb) == null ? void 0 : _d.toFixed(0))} `;
     const container = el.createEl("div", {
       cls: "kinopoisk-plugin__suggest-item"
     });
@@ -2115,6 +2225,11 @@ var DEFAULT_SETTINGS = {
   seriesFileNameFormat: "",
   seriesFolder: "",
   seriesTemplateFile: "",
+  // Image settings
+  actorsPath: "",
+  directorsPath: "",
+  writersPath: "",
+  producersPath: "",
   // Image defaults
   imagesFolder: "attachments/kinopoisk",
   saveImagesLocally: false,
@@ -2417,6 +2532,47 @@ var ObsidianKinopoiskSettingTab = class extends import_obsidian8.PluginSettingTa
         await this.plugin.saveSettings();
       }
     );
+    new import_obsidian8.Setting(containerEl).setName(t("settings.peopleHeading")).setHeading();
+    new import_obsidian8.Setting(containerEl).setName(t("settings.actorsFileLocation")).setDesc(t("settings.actorsFileLocationDesc")).addSearch((cb) => {
+      new FolderSuggest(this.app, cb.inputEl, (folder) => {
+        this.plugin.settings.actorsPath = folder;
+        this.plugin.saveSettings();
+      });
+      cb.setPlaceholder(t("settings.actorsFileLocationPlaceholder")).setValue(this.plugin.settings.actorsPath).onChange(async (newFolder) => {
+        this.plugin.settings.actorsPath = newFolder;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian8.Setting(containerEl).setName(t("settings.directorsFileLocation")).setDesc(t("settings.directorsFileLocationDesc")).addSearch((cb) => {
+      new FolderSuggest(this.app, cb.inputEl, (folder) => {
+        this.plugin.settings.directorsPath = folder;
+        this.plugin.saveSettings();
+      });
+      cb.setPlaceholder(t("settings.directorsFileLocationPlaceholder")).setValue(this.plugin.settings.directorsPath).onChange(async (newFolder) => {
+        this.plugin.settings.directorsPath = newFolder;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian8.Setting(containerEl).setName(t("settings.writersFileLocation")).setDesc(t("settings.writersFileLocationDesc")).addSearch((cb) => {
+      new FolderSuggest(this.app, cb.inputEl, (folder) => {
+        this.plugin.settings.writersPath = folder;
+        this.plugin.saveSettings();
+      });
+      cb.setPlaceholder(t("settings.writersFileLocationPlaceholder")).setValue(this.plugin.settings.writersPath).onChange(async (newFolder) => {
+        this.plugin.settings.writersPath = newFolder;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian8.Setting(containerEl).setName(t("settings.producersFileLocation")).setDesc(t("settings.producersFileLocationDesc")).addSearch((cb) => {
+      new FolderSuggest(this.app, cb.inputEl, (folder) => {
+        this.plugin.settings.producersPath = folder;
+        this.plugin.saveSettings();
+      });
+      cb.setPlaceholder(t("settings.producersFileLocationPlaceholder")).setValue(this.plugin.settings.producersPath).onChange(async (newFolder) => {
+        this.plugin.settings.producersPath = newFolder;
+        await this.plugin.saveSettings();
+      });
+    });
   }
 };
 
@@ -2503,7 +2659,7 @@ var ObsidianKinopoiskPlugin = class extends import_obsidian10.Plugin {
         console.warn("No new leaf");
         return;
       }
-      await newLeaf.openFile(targetFile, { state: { mode: "source" } });
+      await newLeaf.openFile(targetFile, { state: { mode: "preview" } });
       newLeaf.setEphemeralState({ rename: "all" });
       await new CursorJumper(this.app).jumpToNextCursorLocation();
     } catch (err) {

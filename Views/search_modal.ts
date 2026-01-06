@@ -35,7 +35,12 @@ export class SearchModal extends Modal {
 	) {
 		super(plugin.app);
 		this.token = plugin.settings.apiToken;
-		this.kinopoiskProvider = new KinopoiskProvider();
+		this.kinopoiskProvider = new KinopoiskProvider({
+			actorsPath: plugin.settings.actorsPath,
+			directorsPath: plugin.settings.directorsPath,
+			writersPath: plugin.settings.writersPath,
+			producersPath: plugin.settings.producersPath
+		});
 	}
 
 	// Manages UI loading state

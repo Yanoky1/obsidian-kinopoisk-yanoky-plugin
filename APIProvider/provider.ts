@@ -25,10 +25,19 @@ export class KinopoiskProvider {
 	private dataFormatter: DataFormatter;
 	private validator: ApiValidator;
 
-	constructor() {
+	constructor(settings?: {
+		actorsPath: string;
+		directorsPath: string;
+		writersPath: string;
+		producersPath: string;
+	}) {
 		this.errorHandler = new ErrorHandler();
 		this.dataFormatter = new DataFormatter();
 		this.validator = new ApiValidator();
+
+		if (settings) {
+			this.dataFormatter.setSettings(settings);
+		}
 	}
 
 	/**
@@ -104,8 +113,8 @@ export class KinopoiskProvider {
 		if (!searchResults.docs || searchResults.docs.length === 0) {
 			throw new Error(
 				tWithParams("provider.nothingFound", { query }) +
-					" " +
-					t("provider.tryChangeQuery")
+				" " +
+				t("provider.tryChangeQuery")
 			);
 		}
 

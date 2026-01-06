@@ -41,14 +41,26 @@ export interface MovieShow {
 	subType: string[];
 
 	// People
+	
 	director: string[];
 	directorsLinks: string[]; // Formatted as [[Director]] Obsidian links
+	directorsLinksWithPath: string[]; // Formatted as [[path/Director]] Obsidian links
+	directorsIdsWithPath: string[]; // Formatted as [[path/ID|Director]] Obsidian links
+
 	actors: string[];
 	actorsLinks: string[]; // Formatted as [[Actor]] Obsidian links
+	actorsLinksWithPath: string[]; // Formatted as [[path/Actor]] Obsidian links
+	actorsIdsWithPath: string[]; // Formatted as [[path/ID|Actor]] Obsidian links
+
 	writers: string[];
 	writersLinks: string[]; // Formatted as [[Writer]] Obsidian links
+	writersLinksWithPath: string[]; // Formatted as [[path/Writer]] Obsidian links
+	writersIdsWithPath: string[]; // Formatted as [[path/ID|Writer]] Obsidian links
+
 	producers: string[];
 	producersLinks: string[]; // Formatted as [[Producer]] Obsidian links
+	producersLinksWithPath: string[]; // Formatted as [[path/Producer]] Obsidian links
+	producersIdsWithPath: string[]; // Formatted as [[path/ID|Producer]] Obsidian links
 
 	// Technical specs
 	movieLength: number; // Duration in minutes
